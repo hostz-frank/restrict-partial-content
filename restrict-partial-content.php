@@ -60,7 +60,7 @@ function render_restrict( $atts, $content = null ) {
 
 	if ($restrict == 1) {
 		wp_enqueue_style( 'restrict-content', plugins_url().'/restrict-partial-content/restrict-partial.css');
-		$output = '<div class="restricted-content">' .  esc_html ( $message ) . '</div>';
+		$output = '<div class="restricted-content">' . wp_kses_data( $message ) . '</div>';
 		if ($interval >0) {
 			$output .= '<div id="timer">
 			<div id="timer-days"></div><div id="timer-hours"></div><div id="timer-minutes"></div><div id="timer-seconds"></div>
